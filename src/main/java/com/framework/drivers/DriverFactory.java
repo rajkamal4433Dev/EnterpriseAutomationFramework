@@ -35,6 +35,9 @@ public class DriverFactory {
         String browser =
                 prop.getProperty("browser");
 
+        // Diagnostic: print resolved browser/headless
+        System.out.println("[DriverFactory] Browser=" + browser + ", headless=" + prop.getProperty("headless"));
+
         // CHROME
 
         if (browser.equalsIgnoreCase("chrome")) {

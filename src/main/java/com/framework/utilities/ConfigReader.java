@@ -38,6 +38,17 @@ public class ConfigReader {
             e.printStackTrace();
         }
 
+        // Allow JVM system properties to override file values
+        // e.g. mvn test -Dheadless=true or -Dbrowser=firefox
+        String sysHeadless = System.getProperty("headless");
+        if (sysHeadless != null && !sysHeadless.isEmpty()) {
+            prop.setProperty("headless", sysHeadless);
+        }
+        String sysBrowser = System.getProperty("browser");
+        if (sysBrowser != null && !sysBrowser.isEmpty()) {
+            prop.setProperty("browser", sysBrowser);
+        }
+
         return prop;
     }
 

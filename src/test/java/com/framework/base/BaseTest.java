@@ -8,32 +8,31 @@ import org.testng.annotations.BeforeMethod;
 import com.framework.drivers.DriverFactory;
 import com.framework.utilities.ConfigReader;
 
+/**
+ * Test base that initializes and quits the WebDriver for TestNG tests.
+ */
 public class BaseTest {
 
     protected Properties prop;
 
     @BeforeMethod(alwaysRun = true)
-
     public void setup() {
-
-        // Load Config
-
+        // Load properties for the environment (qa by default)
         prop = ConfigReader.initProperties();
 
-        // Initialize Browser
-
+        // Initialize browser driver (DriverFactory uses 'headless' and 'browser' props)
         DriverFactory.initDriver();
 
-        // Launch Application
-
-        DriverFactory.getDriver()
-                .get(prop.getProperty("url"));
+        // Navigate to base URL
+        String url = prop.getProperty("url");
+        if (url != null && !url.isEmpty()) {
+            DriverFactory.getDriver().get(url);
+        }
     }
 
     @AfterMethod(alwaysRun = true)
-
     public void tearDown() {
-
+        // Quit the driver after each test
         DriverFactory.quitDriver();
     }
 }
