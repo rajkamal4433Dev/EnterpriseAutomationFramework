@@ -13,6 +13,8 @@ public class PractiseTests extends BaseTest {
 		PractiseShadowDoM practiseShadowDoM = new PractiseShadowDoM();
 		practiseShadowDoM.interactWithShadowDom();
 		
+		System.out.println("This is the Practise Test");
+		
 		
 		
 	}
