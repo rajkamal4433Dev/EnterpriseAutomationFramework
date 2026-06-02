@@ -31,9 +31,13 @@ public class DriverFactory {
     public static void initDriver() {
 
         prop = ConfigReader.initProperties();
+        
+        
+        String browser = System.getProperty("browser")!=null
+				? System.getProperty("browser")
+				: prop.getProperty("browser");
 
-        String browser =
-                prop.getProperty("browser");
+        String headless = System.getProperty("headless")!=null? System.getProperty("headless") : prop.getProperty("headless");
 
         // Diagnostic: print resolved browser/headless
         System.out.println("[DriverFactory] Browser=" + browser + ", headless=" + prop.getProperty("headless"));

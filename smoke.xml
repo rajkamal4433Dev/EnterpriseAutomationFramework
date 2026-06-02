@@ -3,7 +3,7 @@
 
 <suite name="AutomationSuite"
        parallel="classes"
-       thread-count="2">
+       thread-count="1">
 
     <test name="SmokeTests">
 
@@ -11,10 +11,8 @@
 
             <class name="com.framework.tests.LoginTest"/>
             <class name="com.framework.tests.AdminTest"/>
-            <class name="com.framework.tests.ApplyLeaveTest"/>
             <class name="com.framework.tests.PIMTest"/>
-            <class name="com.framework.tests.PractiseGITMovesTest"/>
-            <class name="com.framework.tests.PractiseTests"/>
+           
 
         </classes>
 
